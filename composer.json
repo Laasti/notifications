@@ -1,0 +1,19 @@
+{
+    "name": "laasti/notifications",
+    "description": "A class-based form abstraction for PHP.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sonia Marquette",
+            "email": "smarquette@pixelcircus.ca"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laasti\\Notifications\\": "src/"
+        }
+    }
+}
