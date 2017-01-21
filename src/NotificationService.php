@@ -19,42 +19,49 @@ class NotificationService
 {
     protected $messages = array();
     protected $session;
-    
+
     public function __construct(SessionInterface $session)
     {
         $this->session = $session;
     }
 
-    public function send() {
+    public function send()
+    {
         $this->session->getFlashBag()->setAll($this->all());
     }
 
-    public function add($type, $msg) {
-        $this->messages[$type][] = $msg;
-        return $this;
+    public function all()
+    {
+        return $this->messages;
     }
 
-    public function success($msg) {
+    public function success($msg)
+    {
         $this->add('success', $msg);
         return $this;
     }
 
-    public function error($msg) {
+    public function add($type, $msg)
+    {
+        $this->messages[$type][] = $msg;
+        return $this;
+    }
+
+    public function error($msg)
+    {
         $this->add('error', $msg);
         return $this;
     }
 
-    public function warning($msg) {
+    public function warning($msg)
+    {
         $this->add('warning', $msg);
         return $this;
     }
 
-    public function info($msg) {
+    public function info($msg)
+    {
         $this->add('info', $msg);
         return $this;
-    }
-
-    public function all() {
-        return $this->messages;
     }
 }

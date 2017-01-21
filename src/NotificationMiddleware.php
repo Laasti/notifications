@@ -21,24 +21,24 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class NotificationMiddleware implements MiddlewareInterface, MiddlewareTerminableInterface
 {
-    
+
     /**
      *
-     * @var SessionInterface 
+     * @var SessionInterface
      */
     protected $service;
-    
+
     public function __construct(NotificationService $service)
     {
         $this->service = $service;
     }
-    
-    
+
+
     public function handle(Request $request)
     {
         return $request;
     }
-    
+
     public function terminate(Request $request, Response $response)
     {
         $this->service->send();
